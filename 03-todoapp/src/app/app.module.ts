@@ -12,6 +12,7 @@ import {StoreModule} from '@ngrx/store';
 import {todoReducer} from './todo/todo.reducer';
 import {environment} from '../environments/environment';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({todos: todoReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
