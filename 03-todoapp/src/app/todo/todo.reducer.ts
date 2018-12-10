@@ -3,6 +3,7 @@ import {Todo} from './model/todo';
 
 const todo1 = new Todo('Clean the kitchen');
 const todo2 = new Todo('Read the newspaper');
+todo2.completed = true;
 
 const initialState: Todo[] = [todo1, todo2];
 
