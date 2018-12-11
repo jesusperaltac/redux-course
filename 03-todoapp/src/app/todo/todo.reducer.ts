@@ -1,4 +1,4 @@
-import {actions, ADD_TODO, TOGGLE_TODO} from './todo.actions';
+import {actions, ADD_TODO, EDIT_TODO, TOGGLE_TODO} from './todo.actions';
 import {Todo} from './model/todo';
 
 const todo1 = new Todo('Clean the kitchen');
@@ -20,6 +20,18 @@ export function todoReducer(state = initialState, action: actions): Todo[] {
             return {
               ...todoEdit,
               completed: !todoEdit.completed
+            };
+          } else {
+            return todoEdit;
+          }
+        }
+      );
+    case EDIT_TODO:
+      return state.map(todoEdit => {
+          if (todoEdit.id === action.id) {
+            return {
+              ...todoEdit,
+              text: action.text
             };
           } else {
             return todoEdit;
