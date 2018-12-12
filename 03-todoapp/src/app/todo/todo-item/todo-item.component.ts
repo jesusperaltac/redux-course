@@ -3,7 +3,7 @@ import {Todo} from '../model/todo';
 import {FormControl, Validators} from '@angular/forms';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../app.reducers';
-import {EditTodoAction, ToggleTodoAction} from '../todo.actions';
+import {EditTodoAction, RemoveTodoAction, ToggleTodoAction} from '../todo.actions';
 
 @Component({
   selector: 'app-todo-item',
@@ -52,6 +52,11 @@ export class TodoItemComponent implements OnInit {
     }
 
     const action = new EditTodoAction(this.todo.id, this.txtInput.value);
+    this.store.dispatch(action);
+  }
+
+  removeTodo() {
+    const action = new RemoveTodoAction(this.todo.id);
     this.store.dispatch(action);
   }
 

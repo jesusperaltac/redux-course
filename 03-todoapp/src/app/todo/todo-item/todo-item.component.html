@@ -7,7 +7,7 @@
            [checked]="todo.completed"
     >
     <label (dblclick)="edit()">{{todo.text}}</label>
-    <button class="destroy"></button>
+    <button class="destroy" (click)="removeTodo()"></button>
   </div>
   <input class="edit"
          [value]="todo.text"

@@ -1,4 +1,4 @@
-import {actions, ADD_TODO, EDIT_TODO, TOGGLE_TODO} from './todo.actions';
+import {actions, ADD_TODO, EDIT_TODO, REMOVE_TODO, TOGGLE_TODO} from './todo.actions';
 import {Todo} from './model/todo';
 
 const todo1 = new Todo('Clean the kitchen');
@@ -38,6 +38,9 @@ export function todoReducer(state = initialState, action: actions): Todo[] {
           }
         }
       );
+
+    case REMOVE_TODO:
+      return state.filter(todoEdit => todoEdit.id !== action.id);
     default:
       return state;
   }
